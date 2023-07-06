@@ -8,9 +8,9 @@ services:
     depends_on:
       - mongodb
       - base
-    volumes:
-      - ./:/home/server/swyger/auth
-      - ./node_modules:/home/server/swyger/auth/node_modules
+    #volumes:
+      #- ./:/home/server/swyger/auth
+      #- ./node_modules:/home/server/swyger/auth/node_modules
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
