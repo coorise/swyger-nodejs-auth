@@ -6,9 +6,9 @@ services:
     image: swyger/nodejs-auth:0.1.0
     build: ./
     env_file: .env
-    depends_on:
-      - mongodb
-      - base
+    #depends_on:
+      #- mongodb
+      #- base
     volumes:
       - ./:/home/server/swyger/auth
       - ./node_modules:/home/server/swyger/auth/node_modules
