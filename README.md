@@ -29,6 +29,16 @@ DB_PORT=27017
 DB_USERNAME=root
 DB_PASSWORD=
 ```
+- Configuration of Swyger Base
+```
+ACE_HOST=localhost
+ACE_PORT=3100
+ACE_NAME=swyger
+ACE_ENABLE_HTTPS=false
+ACE_USER=admin
+ACE_PASS=SwygerBase@123
+```
+
 Note: If you want to add more databases (MySQL, etc...) go in ``./src/app/config/database/typeorm/typeorm.db-list.js``
 And you also have to set your drive read/write ``./src/app/config/database/typeorm/data.drive-manager.js``
 - Configuration of Swyger Base
@@ -65,7 +75,7 @@ Note: You can see the file ``./src/app/services/api/builder/typeorm/cmd.js`` (St
 npm run dev
 ```
 
-### Run In Production Mode
+### Run In Production Modes
 ```
 npm run build
 npm run prod
@@ -75,14 +85,16 @@ npm run start
 ### Run In Docker
 
 A ``Dockerfile`` and ``docker-compose.yaml`` are located at the root of your project
-- #### Build Image
+- #### Build Your Own Local Image
 ```
-docker build -t swyger/auth:0.1 .
+git clone https://github.com/coorise/swyger-nodejs-auth.git
+cd swyger-nodejs-auth
+docker build -t coorise/swyger-nodejs-auth:0.1 .
 ```
 Note: The working docker directory will be in ``/home/server/swyger/auth/``
 - #### Run Image In Container with Docker
 ```
-docker run --name swyger_auth -p 4100:4100 --expose=4100 --add-host=host.docker.internal:host-gateway swyger/auth:0.1
+docker run --name swyger_auth -p 4100:4100 --expose=4100 --add-host=host.docker.internal:host-gateway coorise/swyger-nodejs-auth:0.1
 ```
 Note: In case you want to create a volume:
 ```
