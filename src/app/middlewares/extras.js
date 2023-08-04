@@ -59,10 +59,12 @@ export default class ExtrasMiddleware{
                 }
                 //Please visit  the acebase client: https://www.npmjs.com/package/acebase-client
                 if(req?.acebaseClient?.auth){
+
                     await req?.acebaseClient?.auth
                         ?.signIn(ace.user,ace.pass)
                         ?.then(async (admin)=>{
-
+                            console.log("admin?.accessToken: ",admin)
+                            console.log("user info: ",req?.user)
                             if(admin?.accessToken){
                                 //console.log('get admin info : ', admin?.user)
                                 //console.log('get admin accessToken : ', admin?.accessToken)
