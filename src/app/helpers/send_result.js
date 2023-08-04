@@ -51,6 +51,7 @@ let sendResult=async (service,option,req,res,next)=>{
                     .then(result => {
                         //console.log(`Signed out!`);
                     }).catch(e=>{})
+                req.extrasPath=null
 
                 if(result?.error|| result?.data===false){
                     response.error={}
@@ -134,6 +135,7 @@ let sendResultWithError=async (service,option,req,res,next)=>{
                     .then(result => {
                         //console.log(`Signed out!`);
                     }).catch(e=>{})
+                req.extrasPath=null
 
                 let error
                 if(result?.error) error={auth:result?.error}
